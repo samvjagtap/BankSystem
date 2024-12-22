@@ -1,5 +1,6 @@
-package com.unicorn.bank_managment_case_study;
+package com.bank.account;
 
+import java.sql.Date;
 
 public class Current extends Account{
 
@@ -28,27 +29,45 @@ public class Current extends Account{
 		this.overdraftLimit = overdraftLimit;
 	}
 
-	@Override
-	public double calculateInterest() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
+	
 
 
 	@Override
 	public void withdrow(double amount) {
-		// TODO Auto-generated method stub
-		
+	    // Withdrawal logic with overdraft consideration
+	    if (amount <= getBalance() + overdraftLimit) { 
+	        setBalance(getBalance() - amount); 
+	        System.out.println("Withdrawal successful. Remaining balance: " + getBalance());
+	        
+	    } else {
+	        System.out.println("Insufficient balance! Overdraft limit exceeded.");
+	       
+	    }
 	}
 
 
 
 	@Override
 	public void deposite(double amount) {
+	    // Deposit logic
+	    if (amount > 0) { 
+	        setBalance(getBalance() + amount); 
+	        System.out.println("Deposit successful. Current balance: " + getBalance());
+	    } else {
+	        System.out.println("Invalid deposit amount."); 
+	    }
+	  
+	}
+
+
+
+	@Override
+	public void calculateInterest() {
 		// TODO Auto-generated method stub
+		//current account does not have Interest
 		
 	}
+
 	
 	
 	
