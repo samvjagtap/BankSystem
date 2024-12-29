@@ -35,6 +35,8 @@ public class Transaction {
 	}
 	
 	public static void showDailyTransaction(Transaction[] transactions) {
+		
+		
 	    // Format for date
 	    SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 

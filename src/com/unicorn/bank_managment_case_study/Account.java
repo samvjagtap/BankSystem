@@ -1,5 +1,6 @@
 package com.unicorn.bank_managment_case_study;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public abstract class Account {
@@ -67,7 +68,5 @@ public abstract class Account {
 	public abstract double calculateInterest();
 	public abstract boolean checkAccountStatus();
     
-    
-	
-    
+        
 }
