@@ -32,4 +32,8 @@ public class SavingAccount extends Account {
 		return false;
 	}
 	
+	public String toString() {
+	    return super.toString(); // Leverage the base class's toString
+	}
+	
 }

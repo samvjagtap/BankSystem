@@ -4,8 +4,8 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class SalaryAccount extends Account {
-	Date lastTransactionDate; // Use LocalDate for date handling
-    Date currentDate = new Date(); // Current date
+	Date lastTransactionDate = new Date(); // Use LocalDate for date handling
+	Date currentDate = new Date(); // Current date
     int accountStatus;
     static final double rate_Of_Interest = 0.7;
     
@@ -14,9 +14,17 @@ public class SalaryAccount extends Account {
 		this.accountStatus = accountStatus;
 	}
     
+    public Date getLastTransactionDate() {
+		return lastTransactionDate;
+	}
+
+	public void setLastTransactionDate(Date lastTransactionDate) {
+		this.lastTransactionDate = lastTransactionDate;
+	}
+    
     public boolean checkAccountStatus() {
     	Date todayDate = new Date();
-    	if (getMonthDifference(this.createdOn, todayDate) >= 2) {
+    	if (getMonthDifference(this.lastTransactionDate, todayDate) >= 2) {
     		this.accountStatus = 0;
     		return true;
     	} else {
@@ -63,6 +71,10 @@ public class SalaryAccount extends Account {
 
 	    // Calculate the difference in months
 	    return Math.abs((endYear - startYear) * 12 + (endMonth - startMonth));
+	}
+	
+	public String toString() {
+	    return super.toString(); // Leverage the base class's toString
 	}
 
 }
